@@ -53,17 +53,40 @@ paddle-billing-skills/
 Once per machine:
 
 ```bash
-claude plugin marketplace add ~/Developments/paddle-billing-skills
+claude plugin marketplace add behestee/paddle-billing-skills
 claude plugin install paddle-billing@paddle-billing-skills
 ```
 
-Or, inside Claude Code: `/plugin marketplace add ~/Developments/paddle-billing-skills`, then `/plugin install paddle-billing@paddle-billing-skills`.
+Or, inside Claude Code: `/plugin marketplace add behestee/paddle-billing-skills`, then `/plugin install paddle-billing@paddle-billing-skills`.
 
 Start a new Claude Code session. The skills then show up in every project.
 
-**Share with teammates / other machines:** push this folder to a Git repo (for example a
-private GitHub repo `paddle-billing-skills`), then on the other machine run
-`claude plugin marketplace add <owner>/paddle-billing-skills` and the same `install` line.
+To get new versions later: `claude plugin marketplace update paddle-billing-skills`.
+
+**VS Code:** the Claude Code extension shares plugin settings with the CLI (`~/.claude`).
+Either run the two commands above in the integrated terminal, or type `/plugin` in the
+Claude panel's chat input and add the marketplace `behestee/paddle-billing-skills`, then
+install `paddle-billing`. Start a new conversation (or reload the window) afterwards.
+
+**Enable for a whole team (per project):** commit this to the project's
+`.claude/settings.json`. Teammates are asked to install the plugin when they trust the
+folder, in both the CLI and VS Code:
+
+```json
+{
+  "extraKnownMarketplaces": {
+    "paddle-billing-skills": {
+      "source": { "source": "github", "repo": "behestee/paddle-billing-skills" }
+    }
+  },
+  "enabledPlugins": {
+    "paddle-billing@paddle-billing-skills": true
+  }
+}
+```
+
+**Local development:** to try unpushed changes, add your clone instead:
+`claude plugin marketplace add ~/Developments/paddle-billing-skills`.
 
 **Official `paddle` plugin:** if it's also installed, the two plugins' skills can both
 trigger. This plugin's contract says it takes precedence in projects that have a

@@ -4,7 +4,7 @@
   "description": "Standardised Paddle Billing integrations (SaaS subscriptions, digital goods, ebooks) that produce the same implementation in every project and stack.",
   "owner": {
     "name": "Hussain Behestee",
-    "email": "behestee@innovative-solutions.co.jp"
+    "email": "behestee@gmail.com"
   },
   "plugins": [
     {

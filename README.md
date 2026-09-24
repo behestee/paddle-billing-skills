@@ -9,6 +9,6 @@ for every stack, sync scripts in Node and Python, and promo-code sync.
 - Tests: `node tests/run-tests.mjs` (both sync scripts against a mock Paddle API; outputs must match)
 
 ```bash
-claude plugin marketplace add ~/Developments/paddle-billing-skills
+claude plugin marketplace add behestee/paddle-billing-skills
 claude plugin install paddle-billing@paddle-billing-skills
 ```
