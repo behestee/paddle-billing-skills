@@ -1,0 +1,19 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "paddle-billing-skills",
+  "description": "Standardised Paddle Billing integrations (SaaS subscriptions, digital goods, ebooks) that produce the same implementation in every project and stack.",
+  "owner": {
+    "name": "Hussain Behestee",
+    "email": "behestee@innovative-solutions.co.jp"
+  },
+  "plugins": [
+    {
+      "name": "paddle-billing",
+      "description": "Paddle Billing skills: shared contract + catalog sync scripts (Node & Python), SaaS subscriptions with trials/teams/refunds, one-time digital goods, and ebooks — all with discount/promo-code sync.",
+      "version": "1.0.0",
+      "author": { "name": "Hussain Behestee" },
+      "category": "development",
+      "source": "./plugins/paddle-billing"
+    }
+  ]
+}

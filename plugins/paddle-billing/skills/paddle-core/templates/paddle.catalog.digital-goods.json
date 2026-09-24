@@ -1,0 +1,39 @@
+{
+  "contractVersion": 1,
+  "app": "mystore",
+  "mode": "fixed",
+  "skills": ["digital-goods"],
+  "project": { "backend": "fastapi", "frontend": "nextjs", "database": "postgres" },
+  "currency": "USD",
+  "priceChangePolicy": "grandfather",
+  "checkout": { "allowDiscountEntry": true, "displayMode": "overlay", "successPath": "/store/thanks" },
+  "products": [
+    {
+      "key": "ui_kit",
+      "kind": "digital_good",
+      "name": "Dashboard UI Kit",
+      "description": "Figma + React source files",
+      "imageUrl": "https://example.com/img/ui-kit.png",
+      "fulfillment": { "type": "file", "files": [ { "path": "goods/ui-kit-v2.zip", "label": "Source (ZIP)" } ], "maxDownloads": 10, "linkTtlMinutes": 60 },
+      "prices": [ { "key": "ui_kit_single", "name": "Single license", "amount": "39.00" } ]
+    },
+    {
+      "key": "desktop_app",
+      "kind": "digital_good",
+      "name": "MyTool Desktop (lifetime)",
+      "taxCategory": "standard",
+      "fulfillment": { "type": "license_key", "licensePrefix": "MYTOOL", "files": [ { "path": "apps/mytool-setup.exe", "label": "Windows installer" } ], "maxDownloads": null },
+      "prices": [ { "key": "desktop_app_lifetime", "amount": "79.00", "allowQuantity": true, "maxQuantity": 20 } ]
+    },
+    {
+      "key": "snippet_pack",
+      "kind": "digital_good",
+      "name": "Snippet Pack: Auth patterns",
+      "fulfillment": { "type": "access", "accessKey": "snippets_auth" },
+      "prices": [ { "key": "snippet_pack_single", "amount": "9.00" } ]
+    }
+  ],
+  "discounts": [
+    { "key": "bf2026", "code": "BF2026", "description": "Black Friday 30%", "type": "percentage", "amount": "30", "expiresAt": "2026-12-01T23:59:59Z" }
+  ]
+}

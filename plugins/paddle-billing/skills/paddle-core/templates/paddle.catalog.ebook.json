@@ -1,0 +1,27 @@
+{
+  "contractVersion": 1,
+  "app": "mybooks",
+  "mode": "fixed",
+  "skills": ["ebook"],
+  "project": { "backend": "laravel", "frontend": "blade", "database": "mysql" },
+  "currency": "USD",
+  "priceChangePolicy": "grandfather",
+  "checkout": { "allowDiscountEntry": true, "displayMode": "overlay", "successPath": "/books/thanks" },
+  "products": [
+    {
+      "key": "ebook_rust_guide",
+      "kind": "ebook",
+      "name": "The Practical Rust Guide (PDF)",
+      "description": "320-page PDF, lifetime access to updates of edition 3",
+      "imageUrl": "https://example.com/img/rust-guide.png",
+      "fulfillment": { "type": "file", "files": [ { "path": "ebooks/rust-guide-ed3.pdf", "label": "PDF" } ], "maxDownloads": 5, "linkTtlMinutes": 30 },
+      "prices": [
+        { "key": "ebook_rust_guide_std", "name": "PDF edition", "amount": "24.00",
+          "overrides": [ { "countries": ["JP"], "amount": "3500", "currency": "JPY" } ] }
+      ]
+    }
+  ],
+  "discounts": [
+    { "key": "reader10", "code": "READER10", "description": "Newsletter readers 10% off", "type": "percentage", "amount": "10", "restrictTo": ["ebook_rust_guide"] }
+  ]
+}

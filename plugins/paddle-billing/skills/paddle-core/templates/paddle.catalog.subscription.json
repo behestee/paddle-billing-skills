@@ -1,0 +1,70 @@
+{
+  "contractVersion": 1,
+  "app": "myapp",
+  "mode": "fixed",
+  "skills": ["subscription"],
+  "project": { "backend": "express", "frontend": "react", "database": "postgres" },
+  "currency": "USD",
+  "taxMode": "account_setting",
+  "priceChangePolicy": "ask",
+  "checkout": { "allowDiscountEntry": true, "displayMode": "overlay", "successPath": "/billing/success", "theme": "light" },
+  "products": [
+    {
+      "key": "starter",
+      "kind": "subscription",
+      "name": "MyApp Starter",
+      "description": "For individuals getting started",
+      "features": ["1 workspace", "10 channels"],
+      "prices": [
+        { "key": "starter_monthly", "name": "Starter (monthly)", "amount": "4.99", "interval": "month", "trialDays": 7 },
+        { "key": "starter_yearly", "name": "Starter (yearly)", "amount": "49.99", "interval": "year", "trialDays": 7 }
+      ]
+    },
+    {
+      "key": "pro",
+      "kind": "subscription",
+      "name": "MyApp Pro",
+      "description": "Unlimited everything",
+      "features": ["Unlimited workspaces", "Priority support"],
+      "prices": [
+        { "key": "pro_monthly", "name": "Pro (monthly)", "amount": "19.99", "interval": "month", "trialDays": 14,
+          "overrides": [ { "countries": ["JP"], "amount": "2900", "currency": "JPY" } ] },
+        { "key": "pro_yearly", "name": "Pro (yearly)", "amount": "199.99", "interval": "year", "trialDays": 14 }
+      ]
+    },
+    {
+      "key": "team_pro",
+      "kind": "subscription",
+      "plan": "pro",
+      "name": "MyApp Pro (Team seat)",
+      "description": "Pro, billed per seat",
+      "prices": [
+        { "key": "team_pro_monthly", "name": "Pro team seat (monthly)", "amount": "17.99", "interval": "month", "seat": true, "maxSeats": 500 },
+        { "key": "team_pro_yearly", "name": "Pro team seat (yearly)", "amount": "179.99", "interval": "year", "seat": true, "maxSeats": 500 }
+      ]
+    }
+  ],
+  "discounts": [
+    {
+      "key": "launch50",
+      "code": "LAUNCH50",
+      "description": "Launch promo: 50% off the first 3 months",
+      "type": "percentage",
+      "amount": "50",
+      "recur": true,
+      "maxRecurringIntervals": 3,
+      "usageLimit": 200,
+      "restrictTo": ["starter_monthly", "pro_monthly"],
+      "expiresAt": "2026-12-31T23:59:59Z",
+      "enabled": true
+    },
+    {
+      "key": "welcome5",
+      "code": "WELCOME5",
+      "description": "$5 off the first payment",
+      "type": "flat",
+      "amount": "5.00",
+      "currency": "USD"
+    }
+  ]
+}
